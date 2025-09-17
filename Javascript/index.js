@@ -32,3 +32,23 @@ window.addEventListener("load",()=>{
   menuToggle.addEventListener("click", () => {
     navLinks.classList.toggle("show");
   })
+    //scroll to top button
+  document.addEventListener("DOMContentLoaded", () => {
+  const navLinks = document.querySelectorAll(".nav-links a");
+
+  navLinks.forEach(link => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault(); // Prevent default jump
+
+      let targetId = link.textContent.trim(); // Home, Services, Contact
+
+      if (targetId === "Home") {
+        document.getElementById("Home").scrollIntoView({ behavior: "smooth" });
+      } else if (targetId === "Services") {
+        document.getElementById("Service").scrollIntoView({ behavior: "smooth" });
+      } else if (targetId === "Contact") {
+        document.getElementById("Contact-Section").scrollIntoView({ behavior: "smooth" });
+      }
+    });
+  });
+});
